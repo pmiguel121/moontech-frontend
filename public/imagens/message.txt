@@ -1,0 +1,61 @@
+     <table class="table  mt-4 ">
+                            <hr>
+                            <h6 class="mt-2">Outras opções de equipa</h6>
+                            <tr>
+                                <td scope="row" class="d-none d-lg-table-cell">
+                                    <div class="d-flex justify-content-start">
+                                        <img class="maxwphoto mr-5" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                    </div>
+                                <td>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btnamarelonormal mr-3 justify-content-center ">Comparar equipa</button>
+                                        <button type="button" class="btnlaranjanormal mr-3 justify-content-center ">Escolher equipa</button>
+                                    </div>
+                            
+                            
+                            
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row" class="d-none d-lg-table-cell">
+                                    <div class="d-flex justify-content-start">
+                                        <img class="maxwphoto mr-5" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                    </div>
+                                <td>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btnamarelonormal mr-3 justify-content-center ">Comparar equipa</button>
+                                        <button type="button" class="btnlaranjanormal mr-3 justify-content-center ">Escolher equipa</button>
+                                    </div>
+                            
+                            
+                            
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row" class="d-none d-lg-table-cell">
+                                    <div class="d-flex justify-content-start">
+                                        <img class="maxwphoto mr-5" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                        <img class="maxwphoto mr-2" src="imagens/cinza.png" alt="Foto">
+                                    </div>
+                                <td>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btnamarelonormal mr-3 justify-content-center ">Comparar equipa</button>
+                                        <button type="button" class="btnlaranjanormal mr-3 justify-content-center ">Escolher equipa</button>
+                                    </div>
+                            
+                            
+                            
+                                </td>
+                            </tr>
+                          </table>
