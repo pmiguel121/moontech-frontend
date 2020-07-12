@@ -9,8 +9,8 @@ const HerokuURL = "https://moontechv2.herokuapp.com";
 import Chip from '@material-ui/core/Chip';
 //import authService from './auth.service';
 
-import Dropzone from 'react-dropzone';
-import { DropContainer, UploadMessage } from "./styles";
+// import Dropzone from 'react-dropzone';
+// import { DropContainer, UploadMessage } from "./styles";
 
 
 //VALIDAÇOES
@@ -1185,7 +1185,7 @@ class RHAdicionarDev extends React.Component {
                                                         <label> Fotografia </label>
                                                     </div>
                                                     <div className="col-xs-1 ">
-                                                        <Dropzone accept="image/*" onDropAccepted={onUpload}>
+                                                        {/* <Dropzone accept="image/*" onDropAccepted={onUpload}>
                                                             {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
                                                                 <DropContainer
                                                                     {...getRootProps()}
@@ -1197,9 +1197,9 @@ class RHAdicionarDev extends React.Component {
                                                                     {this.renderDragMessage(isDragActive, isDragReject)}
                                                                 </DropContainer>
                                                             )}
-                                                        </Dropzone>
+                                                        </Dropzone> */}
 
-                                                        {/* <input value={this.state.foto} onChange={(value) => this.setState({ foto: value.target.value })} type="file" className="texto font-weight-light" multiple /> */}
+                                                        <input value={this.state.foto} onChange={(value) => this.setState({ foto: value.target.value })} type="file" className="texto font-weight-light" multiple />
 
                                                         {/* <input onChange={this.fileSelectedHandler} type="file" className="texto font-weight-light"/>
                                                     <button onClick={this.fileUploadHandler}>Upload</button> */}
