@@ -88,20 +88,19 @@ class GestorCompetencias extends React.Component {
 
   }
 
-  async componentDidMount() {
-    const response = await api.get("posts");
-
-    this.setState({
-      uploadedFiles: response.data.map(file => ({
-        id: file._id,
-        name: file.name,
-        readableSize: filesize(file.size),
-        preview: file.url,
-        uploaded: true,
-        url: file.url
-      }))
-    });
-  }
+  // async componentDidMount() {
+  //   const response = await api.get("posts");
+  //   this.setState({
+  //     uploadedFiles: response.data.map(file => ({
+  //       id: file._id,
+  //       name: file.name,
+  //       readableSize: filesize(file.size),
+  //       preview: file.url,
+  //       uploaded: true,
+  //       url: file.url
+  //     }))
+  //   });
+  // }
 
   handleUpload = files => {
     const uploadedFiles = files.map(file => ({
