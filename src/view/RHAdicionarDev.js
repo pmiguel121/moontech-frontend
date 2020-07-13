@@ -6,7 +6,7 @@ import axios from 'axios';
 const HerokuURL = "https://moontechv2.herokuapp.com";
 
 //IMPORT CHIPS
-import Chip from '@material-ui/core/Chip';
+//import Chip from '@material-ui/core/Chip';
 //import authService from './auth.service';
 
 // import Dropzone from 'react-dropzone';
