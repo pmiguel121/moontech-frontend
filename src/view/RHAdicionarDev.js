@@ -1352,7 +1352,6 @@ class RHAdicionarDev extends React.Component {
                                                         <button type="Reset" className="btnoutlinelaranja " onClick={this.resetForm}>Limpar</button>
 
                                                         <button onClick={() => this.sendSave()} className='btnlaranjanormal' type='submit' disabled={!this.state.formValid}>Adicionar</button>
-
                                                     </div>
                                                 </div>
                                             </div>
