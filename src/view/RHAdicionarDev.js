@@ -6,7 +6,7 @@ import axios from 'axios';
 const HerokuURL = "https://moontech-backend.herokuapp.com";
 
 //IMPORT CHIPS
-//import Chip from '@material-ui/core/Chip';
+import Chip from '@material-ui/core/Chip';
 //import authService from './auth.service';
 
 // import Dropzone from 'react-dropzone';
@@ -1287,7 +1287,7 @@ class RHAdicionarDev extends React.Component {
                                                                 color: "white"
                                                             };
 
-                                                            return <input tabIndex={index1 + 1} label={name} onDelete={this.handleDelete1.bind(this, index1)} style={estilochips1} />
+                                                            return <Chip tabIndex={index1 + 1} label={name} onDelete={this.handleDelete1.bind(this, index1)} style={estilochips1} />
                                                         }, this)}
                                                     </div>
                                                 </div>
@@ -1343,7 +1343,7 @@ class RHAdicionarDev extends React.Component {
                                                                 color: "white"
                                                             };
 
-                                                            return <input tabIndex={index + 1} label={name} onDelete={this.handleDelete.bind(this, index)} style={estilochips} />
+                                                            return <Chip tabIndex={index + 1} label={name} onDelete={this.handleDelete.bind(this, index)} style={estilochips} />
                                                         }, this)}
                                                     </div>
 
