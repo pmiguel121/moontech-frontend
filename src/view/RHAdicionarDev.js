@@ -1346,10 +1346,7 @@ class RHAdicionarDev extends React.Component {
                                                             return <Chip tabIndex={index + 1} label={name} onDelete={this.handleDelete.bind(this, index)} style={estilochips} />
                                                         }, this)}
                                                     </div>
-
-
                                                 </div>
-
                                                 <div className="row justify-content-end ">
                                                     <div className=" text-right mt-5 mb-2  pr-0 col-lg-12 ">
                                                         <button type="Reset" className="btnoutlinelaranja " onClick={this.resetForm}>Limpar</button>
