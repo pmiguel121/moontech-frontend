@@ -662,7 +662,6 @@ class RHPesquisarDev extends React.Component {
                                                     <li><Link to="/RHPesquisarProjetos">Pesquisar Projetos</Link></li>
                                                 </ul>
                                             </li>
-
                                         </ul>
 
                                         <ul>

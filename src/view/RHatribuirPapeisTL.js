@@ -111,7 +111,7 @@ class RHAtribuirPapeisTL extends React.Component {
                                 <div className="sidebar-header">
                                     <div className="intro">
                                         <div className="text-center"> <img src="imagens/bizdirectLOGO.png" alt="" className="img-fluid w-50 text-center" /> </div>
-                                        <Link to="/DEVPerfil"><div className="profile-img mb-xl-4 "> <img className="profile-img maxphotosidebar" src={data.fotourl} alt="Foto de Perfil" /> </div></Link>
+                                        <Link to="/RHDashboard"><div className="profile-img mb-xl-4 "> <img className="profile-img maxphotosidebar" src={data.fotourl} alt="Foto de Perfil" /> </div></Link>
                                         <h3 className="profile-usertitle-name mt-0">{JSON.parse(localStorage.getItem('Utilizador')).nome}</h3>
                                         <h4 className="profile-usertitle-job ">Recursos Humanos</h4>
                                     </div>
