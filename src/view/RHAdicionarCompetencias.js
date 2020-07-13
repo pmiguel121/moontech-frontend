@@ -214,7 +214,7 @@ class RHAdicionarCompetencias extends React.Component {
                                         <a href="#pageSubmenu" className="p-3" data-toggle="collapse" aria-expanded="false">
                                             {" "}
                                             <img
-                                                src="imagens/ceveloper.svg" width="24px" alt="" /><span className="pl-3">Developers</span></a>
+                                                src="imagens/developer.svg" width="24px" alt="" /><span className="pl-3">Developers</span></a>
 
                                         <ul className="collapse list-unstyled" id="pageSubmenu">
                                             <li>

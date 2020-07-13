@@ -107,7 +107,7 @@ class RHPesquisarCompetenciasHumanas extends React.Component {
                                         <a href="#pageSubmenu" className="p-3" data-toggle="collapse" aria-expanded="false">
                                             {" "}
                                             <img
-                                                src="imagens/Developer.svg" width="24px" alt="" /><span className="pl-3">Developers</span></a>
+                                                src="imagens/developer.svg" width="24px" alt="" /><span className="pl-3">Developers</span></a>
 
                                         <ul className="collapse list-unstyled" id="pageSubmenu">
                                             <li>
@@ -118,7 +118,7 @@ class RHPesquisarCompetenciasHumanas extends React.Component {
                                     </li>
                                     <li>
                                         <a href="#CompSubmenu" className="p-3" data-toggle="collapse" aria-expanded="false"> <img
-                                            src="imagens/Competencias.svg" alt="" width="24px" /><span
+                                            src="imagens/competencias.svg" alt="" width="24px" /><span
                                                 className="pl-3">Competências</span></a>
                                         <ul className="collapse list-unstyled" id="CompSubmenu">
                                             <li><Link to="/RHPesquisarCompetenciasTecnicas">Competências Técnicas</Link></li>
@@ -128,7 +128,7 @@ class RHPesquisarCompetenciasHumanas extends React.Component {
                                     </li>
                                     <li>
                                         <a href="#homeSubmenu" className="p-3" data-toggle="collapse" aria-expanded="false"><img
-                                            className="prj_icon" src="imagens/Projetos.svg" alt="" width="24px" />
+                                            className="prj_icon" src="imagens/projetos.svg" alt="" width="24px" />
                                             <span className="pl-3">Projetos</span></a>
                                         <ul className="collapse list-unstyled" id="homeSubmenu">
                                             <li><Link to="/RHCriarProjetos">Criar Projetos</Link></li>
@@ -165,13 +165,13 @@ class RHPesquisarCompetenciasHumanas extends React.Component {
                                             <Link to="/RHPesquisarDev" className="dropdown-item" >Pesquisar developer</Link>
                                             <Link to="/RHatribuirPapeisTL" className="dropdown-item" >Atribuir papéis</Link>
                                             <div className="dropdown-divider"></div>
-                                            <h5 className="dropdown-header"><img className="pr-1" src="imagens/Competencias.svg" width="24px"
+                                            <h5 className="dropdown-header"><img className="pr-1" src="imagens/competencias.svg" width="24px"
                                                 alt="/" />Competências</h5>
                                             <Link to="/RHPesquisarCompetenciasTecnicas" className="dropdown-item" >Competências técnicas</Link>
                                             <Link to="/RHPesquisarCompetenciasHumanas" className="dropdown-item" >Competências humanas</Link>
                                             <Link to="/RHAdicionarCompetencias" className="dropdown-item" >Adicionar competências</Link>
                                             <div className="dropdown-divider "></div>
-                                            <h5 className="dropdown-header"><img className="pr-1" src="imagens/Projetos.svg" width="24px"
+                                            <h5 className="dropdown-header"><img className="pr-1" src="imagens/projetos.svg" width="24px"
                                                 alt="" />Projetos</h5>
 
                                             <Link to="/RHCriarProjetos" className="dropdown-item" >Criar projetos</Link>
