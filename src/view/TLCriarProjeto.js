@@ -1463,6 +1463,7 @@ class TLCriacaoProjeto extends React.Component {
                 if (response.data.success === true) {
 
                     this.props.history.push("/TLContinuarProjeto");
+                    window.location.reload()
                 }
                 else {
 
