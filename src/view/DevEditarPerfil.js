@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-const HerokuURL = "https://moontech-backend.herokuapp.com";
+
 function ValidationMessage(props) {
     if (!props.valid) {
         return (
@@ -10,6 +10,8 @@ function ValidationMessage(props) {
     }
     return null;
 }
+
+const HerokuURL = "https://moontech-backend.herokuapp.com";
 
 class DevEditarPerfil extends React.Component {
 
@@ -249,45 +251,45 @@ class DevEditarPerfil extends React.Component {
     //}
     //FIM Validar interesses
 
-    // componentWillMount() {
-    //     let id_utilizador = JSON.parse(localStorage.getItem('Utilizador')).nrUser
+    componentWillMount() {
+        let id_utilizador = JSON.parse(localStorage.getItem('Utilizador')).nrUser
 
-    //     const url = HerokuURL + "/utilizador/get/" + id_utilizador
-    //     axios.get(url)
+        const url = HerokuURL + "/utilizador/get/" + id_utilizador
+        axios.get(url)
 
-    //         .then(res => {
-    //             if (res.data.success) {
-    //                 const data = res.data.data[0]
-
-
-    //                 this.setState({
-    //                     data: data,
-
-    //                     //foto: data.foto,
-    //                     nome: data.nome,
-    //                     nr_contribuinte: data.nr_contribuinte,
-    //                     telemovel: data.telemovel,
-    //                     email: data.email,
-    //                     morada: data.morada,
-    //                     localidade: data.localidade,
-    //                     codigopostal: data.codigopostal,
-    //                     datanascimento: data.datanascimento,
-    //                     formacao: data.formacao,
-    //                     horasextra: data.horasextra,
-    //                     reunircliente: data.reunircliente,
-    //                     viajar: data.viajar,
-    //                     interesses: data.interesses,
+            .then(res => {
+                if (res.data.success) {
+                    const data = res.data.data[0]
 
 
-    //                 })
-    //             }
-    //             else {
-    //                 alert("Ocorreu um erro ao editar")
-    //             }
-    //         }).catch(error => {
-    //             alert("Erro no servidor: " + error)
-    //         })
-    // }
+                    this.setState({
+                        data: data,
+
+                        //foto: data.foto,
+                        nome: data.nome,
+                        nr_contribuinte: data.nr_contribuinte,
+                        telemovel: data.telemovel,
+                        email: data.email,
+                        morada: data.morada,
+                        localidade: data.localidade,
+                        codigopostal: data.codigopostal,
+                        datanascimento: data.datanascimento,
+                        formacao: data.formacao,
+                        horasextra: data.horasextra,
+                        reunircliente: data.reunircliente,
+                        viajar: data.viajar,
+                        interesses: data.interesses,
+
+
+                    })
+                }
+                else {
+                    alert("Ocorreu um erro ao editar")
+                }
+            }).catch(error => {
+                alert("Erro no servidor: " + error)
+            })
+    }
 
     componentDidMount() {
         this.Load_devs()

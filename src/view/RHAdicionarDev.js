@@ -1398,6 +1398,7 @@ class RHAdicionarDev extends React.Component {
         // const fd = new FormData();
         // fd.append('image', this.state.foto, this.state.foto.name);
         console.log("TOU AQUIIIIII")
+        
         const Url = "https://moontech-backend.herokuapp.com/utilizador/create"
 
         const datapost = {
