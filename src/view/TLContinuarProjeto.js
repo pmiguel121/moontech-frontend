@@ -5,7 +5,7 @@ import axios from 'axios';
 import 'sweetalert2/src/sweetalert2.scss'
 import { Link } from "react-router-dom";
 
-const HerokuURL = "https://moontechv2.herokuapp.com";
+const HerokuURL = "https://moontech-backend.herokuapp.com/";
 
 function searchingFor(term) {
     return function (x) {

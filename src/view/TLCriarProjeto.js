@@ -22,7 +22,7 @@ import 'react-svg-radar-chart/build/css/index.css'
 
 var Chart = require("react-google-charts").Chart;
 
-const HerokuURL = "https://moontechv2.herokuapp.com";
+const HerokuURL = "https://moontech-backend.herokuapp.com/";
 
 
 class TLCriacaoProjeto extends React.Component {

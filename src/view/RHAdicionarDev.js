@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-const HerokuURL = "https://moontechv2.herokuapp.com";
+const HerokuURL = "https://moontech-backend.herokuapp.com";
 
 //IMPORT CHIPS
 //import Chip from '@material-ui/core/Chip';
