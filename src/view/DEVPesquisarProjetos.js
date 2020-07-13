@@ -164,7 +164,7 @@ class DEVPesquisarProjetos extends React.Component {
                                             <span className="pl-3">Projetos</span></Link>
                                     </li>
                                     <li>
-                                        <Link to="/DEVCompetenciasEditar" className="p-3"><img src="imagens/Competencias.svg" width="24px" alt="" /><span
+                                        <Link to="/DEVCompetenciasEditar" className="p-3"><img src="imagens/competencias.svg" width="24px" alt="" /><span
                                             className="pl-3">Competências</span></Link>
                                     </li>
                                     {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
@@ -196,7 +196,7 @@ class DEVPesquisarProjetos extends React.Component {
                                         <Link to="/DEVPesquisarProjetos" className="dropdown-item" ><img className="pr-1" src="imagens/projetos.svg" width="24px"
                                             alt="" />Projetos</Link>
                                         <div className="dropdown-divider"></div>
-                                        <Link to="/DEVCompetenciasEditar" className="dropdown-item" ><img className="pr-1" src="imagens/Competencias.svg" width="24px"
+                                        <Link to="/DEVCompetenciasEditar" className="dropdown-item" ><img className="pr-1" src="imagens/competencias.svg" width="24px"
                                             alt="" />Competências</Link>
 
                                         {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?

@@ -171,7 +171,7 @@ class RHPesquisarCompetenciasHumanas extends React.Component {
                                             <Link to="/RHPesquisarCompetenciasHumanas" className="dropdown-item" >Competências humanas</Link>
                                             <Link to="/RHAdicionarCompetencias" className="dropdown-item" >Adicionar competências</Link>
                                             <div className="dropdown-divider "></div>
-                                            <h5 className="dropdown-header"><img className="pr-1" src="imagens/projetos.svg" width="24px"
+                                            <h5 className="dropdown-header"><img className="pr-1" src="imagens/Projetos.svg" width="24px"
                                                 alt="" />Projetos</h5>
 
                                             <Link to="/RHCriarProjetos" className="dropdown-item" >Criar projetos</Link>

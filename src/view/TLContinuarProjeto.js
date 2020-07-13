@@ -120,7 +120,7 @@ class TLContinuarProjeto extends React.Component {
                                             <span className="pl-3">Projetos</span></Link>
                                     </li>
                                     <li>
-                                        <Link to="/DEVCompetenciasEditar" className="p-3"><img src="imagens/Competencias.svg" width="24px" alt="" /> <span
+                                        <Link to="/DEVCompetenciasEditar" className="p-3"><img src="imagens/competencias.svg" width="24px" alt="" /> <span
                                             className="pl-3">Competências</span></Link>
                                     </li>
                                     {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
@@ -164,7 +164,7 @@ class TLContinuarProjeto extends React.Component {
 
                                             <div>
                                                 <div className="dropdown-divider"></div>
-                                                <Link to="/TLContinuarProjeto" className="dropdown-item" ><img className="pr-1" src="imagens/Competencias.svg" width="24px"
+                                                <Link to="/TLContinuarProjeto" className="dropdown-item" ><img className="pr-1" src="imagens/competencias.svg" width="24px"
                                                     alt="" />Criação de Equipa</Link>
 
                                             </div>
