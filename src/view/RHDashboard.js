@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-// const HerokuURL = "https://moontech-backend.herokuapp.com/";
+const HerokuURL = "https://moontech-backend.herokuapp.com";
 
 var Chart = require("react-google-charts").Chart;
 
@@ -37,7 +37,7 @@ class RHDashboard extends React.Component {
     }
 
     Load_graficosHumanos() {
-        const url = "https://moontech-backend.herokuapp.com/skill/CompMaisUsadasHumanas";
+        const url = HerokuURL + "/skill/CompMaisUsadasHumanas";
         axios.get(url).then(res => {
             if (res.data.success) {
                 const data = res.data.data;
@@ -52,7 +52,7 @@ class RHDashboard extends React.Component {
     }
 
     Load_graficosTecnicos() {
-        const url = "https://moontech-backend.herokuapp.com/skill/CompMaisUsadasTecnicas";
+        const url = HerokuURL + "/skill/CompMaisUsadasTecnicas";
         axios.get(url).then(res => {
             if (res.data.success) {
                 const data = res.data.data;
@@ -70,7 +70,7 @@ class RHDashboard extends React.Component {
         let id_utilizador = JSON.parse(localStorage.getItem('Utilizador')).nrUser
 
         console.log(id_utilizador)
-        const url = "https://moontech-backend.herokuapp.com/utilizador/get/" + id_utilizador
+        const url = HerokuURL + "/utilizador/get/" + id_utilizador
         axios.get(url)
 
             .then(res => {
@@ -89,7 +89,7 @@ class RHDashboard extends React.Component {
 
     Load_ContagemAtivos() {
 
-        const url = "https://moontech-backend.herokuapp.com/projeto/ContagemAtivos"
+        const url = HerokuURL + "/projeto/ContagemAtivos"
         axios.get(url).then(res => {
 
 
@@ -108,7 +108,7 @@ class RHDashboard extends React.Component {
     }
     Load_ContagemConcluidos() {
 
-        const url = "https://moontech-backend.herokuapp.com/projeto/ContagemConcluidos"
+        const url = HerokuURL + "/projeto/ContagemConcluidos"
         axios.get(url).then(res => {
 
 
@@ -127,7 +127,7 @@ class RHDashboard extends React.Component {
     }
 
     Load_ContarDevs() {
-        const url = "https://moontech-backend.herokuapp.com/utilizador/ContarDevs"
+        const url = HerokuURL + "/utilizador/ContarDevs"
         axios.get(url).then(res => {
 
 
@@ -145,7 +145,7 @@ class RHDashboard extends React.Component {
             });
     }
     Load_ContarSkills() {
-        const url = "https://moontech-backend.herokuapp.com/skill/ContarSkills"
+        const url = HerokuURL + "/skill/ContarSkills"
         axios.get(url).then(res => {
 
 

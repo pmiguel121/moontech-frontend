@@ -6,7 +6,7 @@ import authHeader from './auth-header';
 
 //IMPORT CHIPS
 //import Chip from '@material-ui/core/Chip';
-const HerokuURL = "https://moontech-backend.herokuapp.com/";
+const HerokuURL = "https://moontech-backend.herokuapp.com";
 
 function ValidationMessage(props) {
     if (!props.valid) {

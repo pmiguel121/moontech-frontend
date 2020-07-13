@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 //import AuthService from "./auth.service";
-const HerokuURL = "https://moontech-backend.herokuapp.com/";
+const HerokuURL = "https://moontech-backend.herokuapp.com";
 
 class DEVPerfil extends React.Component {
 

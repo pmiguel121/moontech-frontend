@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-const HerokuURL = "https://moontech-backend.herokuapp.com/";
+const HerokuURL = "https://moontech-backend.herokuapp.com";
 function ValidationMessage(props) {
     if (!props.valid) {
         return (

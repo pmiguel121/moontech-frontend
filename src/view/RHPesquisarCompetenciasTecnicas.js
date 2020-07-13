@@ -7,7 +7,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-const HerokuURL = "https://moontech-backend.herokuapp.com/";
+const HerokuURL = "https://moontech-backend.herokuapp.com";
 function searchingFor(term) {
     return function (x) {
         return x.nome.toLowerCase().includes(term.toLowerCase()) ||
