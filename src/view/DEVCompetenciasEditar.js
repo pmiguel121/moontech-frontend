@@ -18,6 +18,7 @@ class DEVCompetenciasEditar extends React.Component {
         suggestions1: []
     };
 
+    
     constructor(props) {
         super(props);
         this.state = {
