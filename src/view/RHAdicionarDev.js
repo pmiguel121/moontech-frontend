@@ -690,16 +690,16 @@ class RHAdicionarDev extends React.Component {
 
 
 
-    renderDragMessage = (isDragActive, isDragReject) => {
-        if (!isDragActive) {
-            return <UploadMessage>Arraste a foto</UploadMessage>
-        }
+    // renderDragMessage = (isDragActive, isDragReject) => {
+    //     if (!isDragActive) {
+    //         return <UploadMessage>Arraste a foto</UploadMessage>
+    //     }
 
-        if (isDragReject) {
-            return <UploadMessage type="error">Arquivo não suportada</UploadMessage>
-        }
-        return <UploadMessage type="success">Solte a foto</UploadMessage>
-    };
+    //     if (isDragReject) {
+    //         return <UploadMessage type="error">Arquivo não suportada</UploadMessage>
+    //     }
+    //     return <UploadMessage type="success">Solte a foto</UploadMessage>
+    // };
 
     //teste fotos paiva é burro
     fileSelectedHandler = event => {
