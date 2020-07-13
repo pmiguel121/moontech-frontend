@@ -182,14 +182,12 @@ class GestorCompetencias extends React.Component {
         <div>
 
           <Switch>
-
             <Route path="/Logout" exact component={Logout} />
             <Route path="/" exact component={IndexSite} />
             <PrivateRoute path="/DEVCompetenciasEditar" exact component={DEVCompetenciasEditar} roles={[Role.DEV, Role.TL]} />
             <PrivateRoute path="/DevEditarPerfil" exact component={DevEditarPerfil} roles={[Role.DEV, Role.TL]} />
             <PrivateRoute path="/DEVPerfil" exact component={DEVPerfil} roles={[Role.DEV, Role.TL]} />
             <PrivateRoute path="/DEVPesquisarProjetos" exact component={DEVPesquisarProjetos} roles={[Role.DEV, Role.TL]} />
-
             <PrivateRoute path="/RHAdicionarCompetencias" exact component={RHAdicionarCompetencias} roles={[Role.RH]} />
             <PrivateRoute path="/RHAdicionarDev" exact component={RHAdicionarDev} roles={[Role.RH]} />
             <PrivateRoute path="/RHatribuirPapeisTL" exact component={RHatribuirPapeisTL} roles={[Role.RH]} />

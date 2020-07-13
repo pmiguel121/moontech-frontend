@@ -73,8 +73,6 @@ export default class IndexSite extends React.Component {
         }
     }
 
-
-
     render() {
         return (
             <div>
