@@ -348,14 +348,14 @@ class TLCriacaoProjeto extends React.Component {
 
         const { suggestions } = this.props;
         return this.state.SkillsTec.map((data, index) => {
-           return  suggestions.push(data.nome)
+            return suggestions.push(data.nome)
         })
     }
     carregadatadaschipsHumanas() {
 
         const { suggestions1 } = this.props;
         return this.state.SkillsHum.map((data, index) => {
-           return  suggestions1.push(data.nome)
+            return suggestions1.push(data.nome)
         })
     }
 
@@ -1473,29 +1473,26 @@ class TLCriacaoProjeto extends React.Component {
                 alert("Erro ao guardar os seus dados." + error)
             })
 
-            const url2 = HerokuURL + "/gerar_equipa/apagargerarequipa"
+        const url2 = HerokuURL + "/gerar_equipa/apagargerarequipa"
 
+        const datapost2 = {
 
+            ElementosEq: this.state.equipagerada,
+            IDEquipa: this.state.projeto[0].equipa_id_equipa_projeto
+        }
+        axios.post(url2, datapost2)
+            .then(response => {
+                if (response.data.success === true) {
+                    this.props.history.push("/TLContinuarProjeto");
+                    window.location.reload()
+                }
+                else {
 
-            const datapost2 = {
-    
-    
-
-                ElementosEq: this.state.equipagerada,
-                IDEquipa: this.state.projeto[0].equipa_id_equipa_projeto
-            }
-            axios.post(url2, datapost2)
-                .then(response => {
-                    if (response.data.success === true) {
-    
-                    }
-                    else {
-                        
-                        alert("Error")
-                    }
-                }).catch(error => {
-                    alert("Erro ao guardar os seus dados." + error)
-                })
+                    alert("Error")
+                }
+            }).catch(error => {
+                alert("Erro ao guardar os seus dados." + error)
+            })
 
 
 
@@ -1504,7 +1501,7 @@ class TLCriacaoProjeto extends React.Component {
 
     geraequipa() {
 
-       
+
         console.log(this.state.CompEscolhidas)
 
         const Url = HerokuURL + "/gerar_equipa/GerarEquipa"
@@ -1525,9 +1522,9 @@ class TLCriacaoProjeto extends React.Component {
 
                         this.state.show = false
                         alert("Selecione as competências pretendidas")
-                     
 
-                
+
+
                     }
                     else {
 
@@ -1536,7 +1533,7 @@ class TLCriacaoProjeto extends React.Component {
                         this.Load_ComHumdaGerEqGraf()
                         this.Load_ComTecdaGerEqGraf()
                         this.state.show = true
-                  
+
                     }
 
                 } else {
