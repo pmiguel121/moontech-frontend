@@ -747,7 +747,7 @@ class TLCriacaoProjeto extends React.Component {
             }
         }
 
-        
+
 
 
         // const { valorIDProjeto } = this.props.location
@@ -1203,26 +1203,15 @@ class TLCriacaoProjeto extends React.Component {
 
                                     : ""}
 
-
-
-
-
-
-
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>
                 </div >
 
             );
-        }
+        });
     }
+
 
     loadFillDataTecnicas() {
 
@@ -1235,8 +1224,7 @@ class TLCriacaoProjeto extends React.Component {
                         <div className="col-md-3 col-sm-3 col-xs-3 col-3 col-lg-3">
                             <span className="my-4 font-weight-light">{data.nome_competencia} </span>
                         </div>
-                        <div className="col
-                        ">
+                        <div className="col">
                             <span className="my-4 font-weight-light">
                                 <div className="slidecontainer">
 
