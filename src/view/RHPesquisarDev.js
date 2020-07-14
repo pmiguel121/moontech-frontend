@@ -2049,10 +2049,8 @@ class RHPesquisarDev extends React.Component {
         axios.put(url, datapost)
             .then(response => {
                 if (response.data.success === true) {
-
-                    alert(response.data.message)
+                    
                     this.Load_devs();
-
                     // this.props.history.push("/DEVPe");
                 }
 
