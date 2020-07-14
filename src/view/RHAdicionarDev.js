@@ -79,7 +79,7 @@ class RHAdicionarDev extends React.Component {
             nr_contribuinte: "", nr_contribuinteValid: false,
             formacao: "", formacaoValid: false,
             localidade: "Escolha uma opção...",
-            genero: "Escolha uma opção...",
+            genero: 1,
             utilizadorrecente: [],
             password: "", passwordValid: false,
             password_Confirm: "", password_ConfirmValid: false,
