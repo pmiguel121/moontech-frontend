@@ -299,6 +299,7 @@ class TLCriacaoProjeto extends React.Component {
         this.Load_ComTecdaGerEqGraf()
         this.Load_ComHumdaGerEqGraf()
         this.Load_tl()
+        this.Load_foto()
         this.Load_CompetenciasEscolhidas()
 
     }
@@ -554,6 +555,28 @@ class TLCriacaoProjeto extends React.Component {
             });
     }
 
+    Load_foto() {
+        let id_utilizador = JSON.parse(localStorage.getItem('Utilizador')).nrUser
+
+        console.log(id_utilizador)
+
+        const url = HerokuURL + "/utilizador/get/" + id_utilizador
+        axios.get(url)
+
+            .then(res => {
+                if (res.data.success) {
+                    const data = res.data.data;
+                    this.setState({ utilizador: data });
+
+                } else {
+                    alert("Erro no Servidor Web!");
+                }
+            })
+            .catch(error => {
+                alert(error)
+            });
+    }
+
 
 
 
@@ -724,145 +747,194 @@ class TLCriacaoProjeto extends React.Component {
             }
         }
 
+        
+
 
         // const { valorIDProjeto } = this.props.location
 
 
 
+        return this.state.utilizador.map((data, index) => {
+            return (
 
-        return (
-
-            <div style={{ marginLeft: "0px", marginRight: "15px" }} >
-                <div className="row no-gutters">
-                    <div className="d-none d-xl-block  col-xl-2">
-
-
+                <div style={{ marginLeft: "0px", marginRight: "15px" }} >
+                    <div className="row no-gutters">
+                        <div className="d-none d-xl-block  col-xl-2">
 
 
 
-                        <nav id="sidebar">
-                            <div className="sidebar-header">
-                                <div className="intro">
-                                    <div className="text-center"><img src="../imagens/bizdirectLOGO.png" alt=""
-                                        className="img-fluid w-50 text-center" /></div>
-                                    <div className="profile-img mb-xl-4"><img className="profile-img maxphotosidebar" src={data.fotourl} alt="Foto de Perfil" /> </div>
-                                    <h3 className="profile-usertitle-name mt-0">{JSON.parse(localStorage.getItem('Utilizador')).nome}</h3>
-                                    <h4 className="profile-usertitle-job ">
-                                        {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
-                                            "Team Leader" : "Developer"}
-                                    </h4>
+
+
+                            <nav id="sidebar">
+                                <div className="sidebar-header">
+                                    <div className="intro">
+                                        <div className="text-center"><img src="../imagens/bizdirectLOGO.png" alt=""
+                                            className="img-fluid w-50 text-center" /></div>
+                                        <div className="profile-img mb-xl-4"><img className="profile-img maxphotosidebar" src={data.fotourl} alt="Foto de Perfil" /> </div>
+                                        <h3 className="profile-usertitle-name mt-0">{JSON.parse(localStorage.getItem('Utilizador')).nome}</h3>
+                                        <h4 className="profile-usertitle-job ">
+                                            {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
+                                                "Team Leader" : "Developer"}
+                                        </h4>
+                                    </div>
+
                                 </div>
-
-                            </div>
-                            <hr />
-                            <ul className="list-unstyled components">
-                                <li>
-                                    <Link to="/DEVPesquisarProjetos" className="p-3"> <img src="../imagens/projetos.svg" width="24px" alt="" />
-                                        <span className="pl-3">Projetos</span></Link>
-                                </li>
-                                <li>
-                                    <Link to="/DEVCompetenciasEditar" className="p-3"><img src="../imagens/competencias.svg" width="24px" alt="" /> <span
-                                        className="pl-3">Competências</span></Link>
-                                </li>
-                                {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
+                                <hr />
+                                <ul className="list-unstyled components">
                                     <li>
-                                        <Link to="/TLContinuarProjeto" className="p-3"><img src="../imagens/decorrer.png" width="24px" alt="" /> <span
-                                            className="pl-3">Criação de Equipa</span></Link>
+                                        <Link to="/DEVPesquisarProjetos" className="p-3"> <img src="../imagens/projetos.svg" width="24px" alt="" />
+                                            <span className="pl-3">Projetos</span></Link>
                                     </li>
-                                    : ""}
-
-                            </ul>
-
-                            <ul>
-                                <li className="mt-5 pt-5">
-                                    <Link to="/Logout" ><img src="../imagens/sair.svg" alt="" width="24px" /><span
-                                        className="pl-3 fixed_bottom">Sair</span>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-
-
-                    </div>
-
-                    <div className="col-xl-10">
-                        <div className="container-fluid d-xl-none p-3 text-right">
-                            <div className="dropdown">
-                                <button type="button" className="btn btn-primary" data-toggle="dropdown" id="sidebarCollapse"></button>
-                                <div className="dropdown-menu">
-                                    <div className="dropdown-header"></div>
-                                    <Link to="/DEVPesquisarProjetos" className="dropdown-item" ><img className="pr-1" src="../imagens/projetos.svg" width="24px"
-                                        alt="" />Projetos</Link>
-
-
-
-                                    <div className="dropdown-divider"></div>
-                                    <Link to="/DEVCompetenciasEditar" className="dropdown-item" ><img className="pr-1" src="../imagens/decorrer.png" width="24px"
-                                        alt="" />Competências</Link>
-
-
-
+                                    <li>
+                                        <Link to="/DEVCompetenciasEditar" className="p-3"><img src="../imagens/competencias.svg" width="24px" alt="" /> <span
+                                            className="pl-3">Competências</span></Link>
+                                    </li>
                                     {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
-
-                                        <div>
-                                            <div className="dropdown-divider"></div>
-                                            <Link to="/TLContinuarProjeto" className="dropdown-item" ><img className="pr-1" src="../imagens/competencias.svg" width="24px"
-                                                alt="" />Criação de Equipa</Link>
-
-                                        </div>
-
+                                        <li>
+                                            <Link to="/TLContinuarProjeto" className="p-3"><img src="../imagens/decorrer.png" width="24px" alt="" /> <span
+                                                className="pl-3">Criação de Equipa</span></Link>
+                                        </li>
                                         : ""}
 
-                                    <div className="dropdown-divider"></div>
-                                    <Link to="/Logout"><img src="../imagens/sair.svg" alt="" width="24px" /><span
-                                        className="pl-3 fixed_bottom">Sair</span></Link>
+                                </ul>
+
+                                <ul>
+                                    <li className="mt-5 pt-5">
+                                        <Link to="/Logout" ><img src="../imagens/sair.svg" alt="" width="24px" /><span
+                                            className="pl-3 fixed_bottom">Sair</span>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </nav>
+
+
+                        </div>
+
+                        <div className="col-xl-10">
+                            <div className="container-fluid d-xl-none p-3 text-right">
+                                <div className="dropdown">
+                                    <button type="button" className="btn btn-primary" data-toggle="dropdown" id="sidebarCollapse"></button>
+                                    <div className="dropdown-menu">
+                                        <div className="dropdown-header"></div>
+                                        <Link to="/DEVPesquisarProjetos" className="dropdown-item" ><img className="pr-1" src="../imagens/projetos.svg" width="24px"
+                                            alt="" />Projetos</Link>
+
+
+
+                                        <div className="dropdown-divider"></div>
+                                        <Link to="/DEVCompetenciasEditar" className="dropdown-item" ><img className="pr-1" src="../imagens/decorrer.png" width="24px"
+                                            alt="" />Competências</Link>
+
+
+
+                                        {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
+
+                                            <div>
+                                                <div className="dropdown-divider"></div>
+                                                <Link to="/TLContinuarProjeto" className="dropdown-item" ><img className="pr-1" src="../imagens/competencias.svg" width="24px"
+                                                    alt="" />Criação de Equipa</Link>
+
+                                            </div>
+
+                                            : ""}
+
+                                        <div className="dropdown-divider"></div>
+                                        <Link to="/Logout"><img src="../imagens/sair.svg" alt="" width="24px" /><span
+                                            className="pl-3 fixed_bottom">Sair</span></Link>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 className="ml-4 mt-5  titulos" >Criação de Equipa</h3>
+                            <div className="row justify-content-center">
+
+
+
+                                <div className="col-lg-11 col-12 col-sm-11    my-4 pr-5  col-sm-11 pl-5 pt-4 pb-4   bg-white  ">
+                                    <h5 className="pb-1 titulos font-weight-normal">Informações do Projeto</h5>
+                                    <hr />
+
+
+                                    {this.loadformaqui()}
 
 
                                 </div>
-                            </div>
-                        </div>
-                        <h3 className="ml-4 mt-5  titulos" >Criação de Equipa</h3>
-                        <div className="row justify-content-center">
 
 
-
-                            <div className="col-lg-11 col-12 col-sm-11    my-4 pr-5  col-sm-11 pl-5 pt-4 pb-4   bg-white  ">
-                                <h5 className="pb-1 titulos font-weight-normal">Informações do Projeto</h5>
-                                <hr />
-
-
-                                {this.loadformaqui()}
-
-
-                            </div>
+                                <div className="col-lg-11 col-12 col-sm-11    my-4 pr-5  col-sm-11 pl-5 pt-4 pb-4   bg-white  ">
+                                    <h5 className="pb-1 titulos font-weight-normal">Competências Técnicas</h5>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="row col-sm-12 col-lg-12">
+                                            <div className="col-xl-6 col-md-12 mb-5 pr-0 ">
 
 
-                            <div className="col-lg-11 col-12 col-sm-11    my-4 pr-5  col-sm-11 pl-5 pt-4 pb-4   bg-white  ">
-                                <h5 className="pb-1 titulos font-weight-normal">Competências Técnicas</h5>
-                                <hr />
-                                <div className="row">
-                                    <div className="row col-sm-12 col-lg-12">
-                                        <div className="col-xl-6 col-md-12 mb-5 pr-0 ">
-
-
-                                            {/* <form className="form-inline">
+                                                {/* <form className="form-inline">
                                                 <i className="fas fa-search" aria-hidden="true"></i>
                                                 <input className="form-control form-control-sm ml-3 w-75" type="text" placeholder="+ Competências Técnicas"
                                                     aria-label="Search" />
                                             </form> */}
-                                            <div className="col-xs-9  col-xs-9 col-lg-9  col-md-8 col-xl-9">
+                                                <div className="col-xs-9  col-xs-9 col-lg-9  col-md-8 col-xl-9">
 
-                                                <div class="input-group ">
+                                                    <div class="input-group ">
 
-                                                    <input type="text" className="form-control form-control-sm my-0 py-1  " id="compTecnicas"
-                                                        name="adicionar" value={this.state.inputTagValue} onKeyDown={onKeyDown} onChange={onChange} />
+                                                        <input type="text" className="form-control form-control-sm my-0 py-1  " id="compTecnicas"
+                                                            name="adicionar" value={this.state.inputTagValue} onKeyDown={onKeyDown} onChange={onChange} />
 
-                                                    <div class="input-group-append">
+                                                        <div class="input-group-append">
 
-                                                        <button class="btn btn-sm" type="button" style={{ color: "white", border: "1px black", backgroundColor: "#59cabc" }} onClick={() => this.sendSave()}>Adicionar</button>
+                                                            <button class="btn btn-sm" type="button" style={{ color: "white", border: "1px black", backgroundColor: "#59cabc" }} onClick={() => this.sendSave()}>Adicionar</button>
+                                                        </div>
                                                     </div>
+                                                    <div> {suggestionsListComponent}</div>
+
                                                 </div>
-                                                <div> {suggestionsListComponent}</div>
+
+                                            </div>
+
+
+
+                                            <div className="row col-xl-12">
+                                                <div className="col-xl-6 col-md-6 col-lg-6 pl-0 ml-md-5 ml-sm-5 ml-5  ">
+
+
+                                                    {this.loadFillDataTecnicas()}
+
+
+
+                                                </div>
+                                                <div className="   col-xl-5 col-md-12 col-lg-5 mt-4 col-sm-12">
+
+                                                    <Chart
+                                                        width={'450px'}
+                                                        height={'300px'}
+                                                        chartType="PieChart"
+                                                        backgroundColor={'white'}
+                                                        loader={<div>Loading Chart</div>}
+
+
+
+                                                        data={outputTecnicas}
+
+                                                        options={{
+                                                            pieHole: 0.4,
+                                                            chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
+                                                            colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
+                                                            fontSize: "17",
+                                                            fontName: "Helvetica",
+                                                            legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
+                                                            pieSliceText: "none",
+                                                            tooltip: { isHtml: true },
+                                                            backgroundColor: 'transparent',
+                                                        }}
+                                                        rootProps={{ 'data-testid': '3' }}
+
+
+                                                    />
+
+
+                                                </div>
 
                                             </div>
 
@@ -870,16 +942,136 @@ class TLCriacaoProjeto extends React.Component {
 
 
 
-                                        <div className="row col-xl-12">
-                                            <div className="col-xl-6 col-md-6 col-lg-6 pl-0 ml-md-5 ml-sm-5 ml-5  ">
+                                    </div>
+                                    {/* <button type="button" className="btnoutlineverde float-right">Limpar</button> */}
+                                </div>
 
 
-                                                {this.loadFillDataTecnicas()}
+                                <div className="col-lg-11 col-12 col-sm-11    my-4 pr-5  pl-5 pt-4 pb-4   bg-white  ">
+                                    <h5 className="pb-1 titulos font-weight-normal">Competências Humanas</h5>
+                                    <hr />
+                                    <div className="row">
 
+                                        <div className="row col-sm-12 col-lg-12">
+
+                                            <div className="col-xl-6 col-md-12 mb-5 pr-0 ">
+
+                                                <div className="col-xs-9  col-xs-9 col-lg-9  col-md-8 col-xl-9">
+
+                                                    <div class="input-group ">
+
+
+                                                        <input type="text" className="form-control form-control-sm my-0 py-1  " id="compTecnicas"
+                                                            name="adicionar" value={this.state.inputTagValue1} onKeyDown={onKeyDown1} onChange={onChange1} />
+
+                                                        <div class="input-group-append">
+
+                                                            <button class="btn btn-sm" type="button" style={{ color: "white", border: "1px black", backgroundColor: "#59cabc" }} onClick={() => this.sendSave1()}>Adicionar</button>
+                                                        </div>
+                                                    </div>
+                                                    <div> {suggestionsListComponent1}</div>
+
+                                                </div>
 
 
                                             </div>
-                                            <div className="   col-xl-5 col-md-12 col-lg-5 mt-4 col-sm-12">
+
+
+                                            <div className="row col-xl-12 ">
+                                                <div className="col-xl-6 col-md-12 col-lg-6 col-sm-12 pl-0    ml-md-5 ml-sm-5 ml-5 ">
+
+
+                                                    {this.loadFillDataHumanas()}
+
+
+                                                </div>
+                                                <div className="   col-xl-5 col-md-12 col-lg-5 mt-4 col-sm-12">
+                                                    <Chart
+                                                        width={'450px'}
+                                                        height={'300px'}
+                                                        chartType="PieChart"
+                                                        backgroundColor={'white'}
+                                                        loader={<div>Loading Chart</div>}
+
+                                                        data={output}
+
+                                                        options={{
+                                                            pieHole: 0.4,
+                                                            chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
+                                                            colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
+                                                            fontSize: "17",
+                                                            fontName: "Helvetica",
+                                                            legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
+                                                            pieSliceText: "none",
+                                                            tooltip: { isHtml: true },
+                                                            backgroundColor: 'transparent',
+                                                        }}
+                                                        rootProps={{ 'data-testid': '3' }}
+
+
+                                                    />
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+                                    {/* <button type="button" className="btnoutlineverde float-right">Limpar</button> */}
+                                </div>
+
+
+
+
+
+                                <button id="botaodegerar" type="button" className="btnverdegrande  mb-5 col-xl-11 col-12 col-sm-11 col-sm-11  ml-xs-0   pt-3 pb-3 " onClick={() => this.geraequipa()}>Gerar Equipa</button>
+
+
+
+
+                                {this.state.show === true ?
+
+
+
+                                    <div className="col-lg-11 col-12 col-sm-11  my-4 pr-5  col-sm-11 pl-5 pt-4 pb-4 mt-4 bg-white  ">
+                                        <h5 className="pb-1 titulos font-weight-normal">Equipa Gerada</h5>
+
+                                        <hr />
+                                        <h6 className="mt-2 mb-5 texto">Elementos da Equipa Gerada</h6>
+
+                                        <div className="row  mt-5  mb-5 justify-content-center">
+
+                                            {this.state.tl.map(function (data) {
+                                                return (
+                                                    <div>
+                                                        {/* <div className="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6 col-6  "> */}
+                                                        <div className="profile-img "><img className="rounded-pill maxphotogerarequipa " src={data.fotourl} alt="" />
+                                                            <div className="align-middle ">
+                                                                <h3 className="profile-usertitle-name text-xs-center  font-weight-normal mt-2 ">Tu</h3>
+                                                                <h4 className="profile-usertitle-job ">Líder</h4>
+                                                            </div>
+                                                        </div>
+                                                        {/* </div> */}
+
+
+
+
+
+                                                    </div>
+                                                )
+                                            })}
+
+                                            {this.carregarEquipaGerada()}
+
+                                        </div>
+
+                                        <div className="row col-xl-12  texto mt-4 justify-content-center">
+                                            <div className="col-xl-6 col-lg-6 col-md-12 ">
+
+                                                <h6>Competências Técnicas Pretendidas</h6>
 
                                                 <Chart
                                                     width={'450px'}
@@ -887,8 +1079,6 @@ class TLCriacaoProjeto extends React.Component {
                                                     chartType="PieChart"
                                                     backgroundColor={'white'}
                                                     loader={<div>Loading Chart</div>}
-
-
 
                                                     data={outputTecnicas}
 
@@ -905,209 +1095,13 @@ class TLCriacaoProjeto extends React.Component {
                                                     }}
                                                     rootProps={{ 'data-testid': '3' }}
 
-
-                                                />
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-                                {/* <button type="button" className="btnoutlineverde float-right">Limpar</button> */}
-                            </div>
-
-
-                            <div className="col-lg-11 col-12 col-sm-11    my-4 pr-5  pl-5 pt-4 pb-4   bg-white  ">
-                                <h5 className="pb-1 titulos font-weight-normal">Competências Humanas</h5>
-                                <hr />
-                                <div className="row">
-
-                                    <div className="row col-sm-12 col-lg-12">
-
-                                        <div className="col-xl-6 col-md-12 mb-5 pr-0 ">
-
-                                            <div className="col-xs-9  col-xs-9 col-lg-9  col-md-8 col-xl-9">
-
-                                                <div class="input-group ">
-
-
-                                                    <input type="text" className="form-control form-control-sm my-0 py-1  " id="compTecnicas"
-                                                        name="adicionar" value={this.state.inputTagValue1} onKeyDown={onKeyDown1} onChange={onChange1} />
-
-                                                    <div class="input-group-append">
-
-                                                        <button class="btn btn-sm" type="button" style={{ color: "white", border: "1px black", backgroundColor: "#59cabc" }} onClick={() => this.sendSave1()}>Adicionar</button>
-                                                    </div>
-                                                </div>
-                                                <div> {suggestionsListComponent1}</div>
-
-                                            </div>
-
-
-                                        </div>
-
-
-                                        <div className="row col-xl-12 ">
-                                            <div className="col-xl-6 col-md-12 col-lg-6 col-sm-12 pl-0    ml-md-5 ml-sm-5 ml-5 ">
-
-
-                                                {this.loadFillDataHumanas()}
-
-
-                                            </div>
-                                            <div className="   col-xl-5 col-md-12 col-lg-5 mt-4 col-sm-12">
-                                                <Chart
-                                                    width={'450px'}
-                                                    height={'300px'}
-                                                    chartType="PieChart"
-                                                    backgroundColor={'white'}
-                                                    loader={<div>Loading Chart</div>}
-
-                                                    data={output}
-
-                                                    options={{
-                                                        pieHole: 0.4,
-                                                        chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
-                                                        colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
-                                                        fontSize: "17",
-                                                        fontName: "Helvetica",
-                                                        legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
-                                                        pieSliceText: "none",
-                                                        tooltip: { isHtml: true },
-                                                        backgroundColor: 'transparent',
-                                                    }}
-                                                    rootProps={{ 'data-testid': '3' }}
-
-
                                                 />
 
                                             </div>
-
-                                        </div>
-
-                                    </div>
-
-
-
-                                </div>
-                                {/* <button type="button" className="btnoutlineverde float-right">Limpar</button> */}
-                            </div>
-
-
-
-
-
-                            <button id="botaodegerar" type="button" className="btnverdegrande  mb-5 col-xl-11 col-12 col-sm-11 col-sm-11  ml-xs-0   pt-3 pb-3 " onClick={() => this.geraequipa()}>Gerar Equipa</button>
-
-
-
-
-                            {this.state.show === true ?
-
-
-
-                                <div className="col-lg-11 col-12 col-sm-11  my-4 pr-5  col-sm-11 pl-5 pt-4 pb-4 mt-4 bg-white  ">
-                                    <h5 className="pb-1 titulos font-weight-normal">Equipa Gerada</h5>
-
-                                    <hr />
-                                    <h6 className="mt-2 mb-5 texto">Elementos da Equipa Gerada</h6>
-
-                                    <div className="row  mt-5  mb-5 justify-content-center">
-
-                                        {this.state.tl.map(function (data) {
-                                            return (
-                                                <div>
-                                                    {/* <div className="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6 col-6  "> */}
-                                                    <div className="profile-img "><img className="rounded-pill maxphotogerarequipa " src={data.fotourl} alt="" />
-                                                        <div className="align-middle ">
-                                                            <h3 className="profile-usertitle-name text-xs-center  font-weight-normal mt-2 ">Tu</h3>
-                                                            <h4 className="profile-usertitle-job ">Líder</h4>
-                                                        </div>
-                                                    </div>
-                                                    {/* </div> */}
-
-
-
-
-
-                                                </div>
-                                            )
-                                        })}
-
-                                        {this.carregarEquipaGerada()}
-
-                                    </div>
-
-                                    <div className="row col-xl-12  texto mt-4 justify-content-center">
-                                        <div className="col-xl-6 col-lg-6 col-md-12 ">
-
-                                            <h6>Competências Técnicas Pretendidas</h6>
-
-                                            <Chart
-                                                width={'450px'}
-                                                height={'300px'}
-                                                chartType="PieChart"
-                                                backgroundColor={'white'}
-                                                loader={<div>Loading Chart</div>}
-
-                                                data={outputTecnicas}
-
-                                                options={{
-                                                    pieHole: 0.4,
-                                                    chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
-                                                    colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
-                                                    fontSize: "17",
-                                                    fontName: "Helvetica",
-                                                    legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
-                                                    pieSliceText: "none",
-                                                    tooltip: { isHtml: true },
-                                                    backgroundColor: 'transparent',
-                                                }}
-                                                rootProps={{ 'data-testid': '3' }}
-
-                                            />
-
-                                        </div>
-                                        <div className="col-xl-6 col-lg-6 col-md-12">
-
-                                            <h6>Competências Humanas Pretendidas</h6>
-
-
-                                            <Chart
-                                                width={'450px'}
-                                                height={'300px'}
-                                                chartType="PieChart"
-                                                backgroundColor={'white'}
-                                                loader={<div>Loading Chart</div>}
-
-                                                data={output
-                                                }
-
-                                                options={{
-                                                    pieHole: 0.4,
-                                                    chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
-                                                    colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
-                                                    fontSize: "17",
-                                                    fontName: "Helvetica",
-                                                    legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
-                                                    pieSliceText: "none",
-                                                    tooltip: { isHtml: true },
-                                                    backgroundColor: 'transparent',
-                                                }}
-                                                rootProps={{ 'data-testid': '3' }}
-
-
-                                            />
-                                        </div>
-                                        <div className="row col-xl-12  texto mt-4 justify-content-center">
                                             <div className="col-xl-6 col-lg-6 col-md-12">
 
-                                                <h6>Competências Técnicas Obtidas</h6>
+                                                <h6>Competências Humanas Pretendidas</h6>
+
 
                                                 <Chart
                                                     width={'450px'}
@@ -1116,7 +1110,8 @@ class TLCriacaoProjeto extends React.Component {
                                                     backgroundColor={'white'}
                                                     loader={<div>Loading Chart</div>}
 
-                                                    data={DadosGraficoTec}
+                                                    data={output
+                                                    }
 
                                                     options={{
                                                         pieHole: 0.4,
@@ -1130,55 +1125,83 @@ class TLCriacaoProjeto extends React.Component {
                                                         backgroundColor: 'transparent',
                                                     }}
                                                     rootProps={{ 'data-testid': '3' }}
+
 
                                                 />
                                             </div>
+                                            <div className="row col-xl-12  texto mt-4 justify-content-center">
+                                                <div className="col-xl-6 col-lg-6 col-md-12">
 
-                                            <div className="col-xl-6 col-lg-6 col-md-12">
+                                                    <h6>Competências Técnicas Obtidas</h6>
 
-                                                <h6>Competências Humanas Obtidas</h6>
+                                                    <Chart
+                                                        width={'450px'}
+                                                        height={'300px'}
+                                                        chartType="PieChart"
+                                                        backgroundColor={'white'}
+                                                        loader={<div>Loading Chart</div>}
 
-                                                <Chart
-                                                    width={'450px'}
-                                                    height={'300px'}
-                                                    chartType="PieChart"
-                                                    backgroundColor={'white'}
-                                                    loader={<div>Loading Chart</div>}
+                                                        data={DadosGraficoTec}
 
-                                                    data={DadosGraficoHum}
+                                                        options={{
+                                                            pieHole: 0.4,
+                                                            chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
+                                                            colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
+                                                            fontSize: "17",
+                                                            fontName: "Helvetica",
+                                                            legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
+                                                            pieSliceText: "none",
+                                                            tooltip: { isHtml: true },
+                                                            backgroundColor: 'transparent',
+                                                        }}
+                                                        rootProps={{ 'data-testid': '3' }}
 
-                                                    options={{
-                                                        pieHole: 0.4,
-                                                        chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
-                                                        colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
-                                                        fontSize: "17",
-                                                        fontName: "Helvetica",
-                                                        legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
-                                                        pieSliceText: "none",
-                                                        tooltip: { isHtml: true },
-                                                        backgroundColor: 'transparent',
-                                                    }}
-                                                    rootProps={{ 'data-testid': '3' }}
+                                                    />
+                                                </div>
+
+                                                <div className="col-xl-6 col-lg-6 col-md-12">
+
+                                                    <h6>Competências Humanas Obtidas</h6>
+
+                                                    <Chart
+                                                        width={'450px'}
+                                                        height={'300px'}
+                                                        chartType="PieChart"
+                                                        backgroundColor={'white'}
+                                                        loader={<div>Loading Chart</div>}
+
+                                                        data={DadosGraficoHum}
+
+                                                        options={{
+                                                            pieHole: 0.4,
+                                                            chartArea: { left: ' 0', top: '9', bottom: '9', width: '100%', height: '100%' },
+                                                            colors: ["#FAAC19", '#F16830', "#59CABC", "#CC2743", "#4C4C4C"],
+                                                            fontSize: "17",
+                                                            fontName: "Helvetica",
+                                                            legend: { position: 'center', alignment: 'center', fontColor: '#59CABC', textStyle: { color: '#777777' } },
+                                                            pieSliceText: "none",
+                                                            tooltip: { isHtml: true },
+                                                            backgroundColor: 'transparent',
+                                                        }}
+                                                        rootProps={{ 'data-testid': '3' }}
 
 
-                                                />
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                                : ""}
+                                    : ""}
 
 
 
-                            {this.state.show === true ?
+                                {this.state.show === true ?
 
-                                <button onClick={() => this.UpdateEquipaGerada()} type="button" className="btnverdegrande mb-5  col-xl-11 col-12 col-sm-11 col-sm-11  ml-xs-0  mt-1 pt-3 pb-3 ">Criar Equipa</button>
+                                    <button onClick={() => this.UpdateEquipaGerada()} type="button" className="btnverdegrande mb-5  col-xl-11 col-12 col-sm-11 col-sm-11  ml-xs-0  mt-1 pt-3 pb-3 ">Criar Equipa</button>
 
-                                : ""}
-
-
+                                    : ""}
 
 
 
@@ -1190,12 +1213,15 @@ class TLCriacaoProjeto extends React.Component {
 
 
 
+
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div >
+                </div >
 
-        );
+            );
+        }
     }
 
     loadFillDataTecnicas() {
