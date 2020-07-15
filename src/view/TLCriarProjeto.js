@@ -746,7 +746,7 @@ class TLCriacaoProjeto extends React.Component {
                                 <div className="intro">
                                     <div className="text-center"><img src="../imagens/bizdirectLOGO.png" alt=""
                                         className="img-fluid w-50 text-center" /></div>
-                                    <div className="profile-img mb-xl-4"><img src="../imagens/fotinha.png" alt="" /></div>
+                                    <div className="profile-img maxphotosidebar"><img src="../imagens/fotinha.png" alt="" /></div>
                                     <h3 className="profile-usertitle-name mt-0">{JSON.parse(localStorage.getItem('Utilizador')).nome}</h3>
                                     <h4 className="profile-usertitle-job ">
                                         {JSON.parse(localStorage.getItem('Utilizador')).tipoUser === 2 ?
