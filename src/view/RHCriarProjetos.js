@@ -1389,8 +1389,6 @@ class RHCriarProjetos extends React.Component {
             reunircliente: this.state.reunircliente,
             descricao: this.state.descricao,
             id_teamleader: this.state.id_teamleader,
-            elementos: this.state.elementos,
-            estado_projeto: this.state.estado_projeto,
 
         }
 
